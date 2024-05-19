@@ -1,14 +1,18 @@
 package org.springframework.test.ioc.bean;
 
+import lombok.Data;
+
 /**
  * @Author: LiYunxiao
  * @Date: 2024-05-19-20:17
  * @Description:
  */
+@Data
 public class Person {
     private String name;
 
     private int age;
+    private Car car;
 
     public String getName() {
         return name;
@@ -26,11 +30,19 @@ public class Person {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+    public Car getCar() {
+        return car;
     }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Person{" +
+//                "name='" + name + '\'' +
+//                ", age=" + age +
+//                '}';
+//    }
 }
