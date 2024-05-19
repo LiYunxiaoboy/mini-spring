@@ -1,5 +1,7 @@
 package org.springframework.beans.factory.config;
 
+import org.springframework.beans.PropertyValues;
+
 /**
  * @Author: LiYunxiao
  * @Date: 2024-05-17-22:30
@@ -7,6 +9,7 @@ package org.springframework.beans.factory.config;
  */
 public class BeanDefinition {
     private Class beanClass;
+    private PropertyValues propertyValues;
 
     public BeanDefinition() {
     }
@@ -15,11 +18,24 @@ public class BeanDefinition {
         this.beanClass = beanClass;
     }
 
+    public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
+        this.beanClass = beanClass;
+        this.propertyValues = propertyValues != null ? propertyValues : new PropertyValues();
+    }
+
     public Class getBeanClass() {
         return beanClass;
     }
 
     public void setBeanClass(Class beanClass) {
         this.beanClass = beanClass;
+    }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
     }
 }
