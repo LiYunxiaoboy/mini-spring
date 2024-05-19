@@ -1,8 +1,8 @@
 package org.springframework.test.ioc;
 
 import org.junit.Test;
-import org.springframework.factory.config.BeanDefinition;
-import org.springframework.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
  * @author derekyi

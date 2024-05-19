@@ -1,6 +1,6 @@
-package org.springframework.factory;
+package org.springframework.beans.factory;
 
-import org.springframework.BeansException;
+import org.springframework.beans.BeansException;
 
 /**
  * @Author: LiYunxiao

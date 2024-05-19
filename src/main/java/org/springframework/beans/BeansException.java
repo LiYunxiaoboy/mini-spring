@@ -1,4 +1,4 @@
-package org.springframework;
+package org.springframework.beans;
 
 /**
  * @Author: LiYunxiao
