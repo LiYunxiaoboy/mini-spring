@@ -9,6 +9,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
  * @date 2020/11/22
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {
+    private InstantiationStrategy instantiationStrategy = new SimpleInstantiationStrategy();
 
     // 创建bean
     @Override
@@ -27,5 +28,17 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
         addSingleton(beanName, bean);
         return bean;
+    }
+    // 交给初始化来管理bean
+    protected Object createBeanInstance(BeanDefinition beanDefinition) {
+        return getInstantiationStrategy().instantiate(beanDefinition);
+    }
+
+    public InstantiationStrategy getInstantiationStrategy() {
+        return instantiationStrategy;
+    }
+
+    public void setInstantiationStrategy(InstantiationStrategy instantiationStrategy) {
+        this.instantiationStrategy = instantiationStrategy;
     }
 }
