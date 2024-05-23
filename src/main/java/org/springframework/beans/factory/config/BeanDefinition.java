@@ -1,5 +1,6 @@
 package org.springframework.beans.factory.config;
 
+import lombok.Data;
 import org.springframework.beans.PropertyValues;
 
 /**
@@ -7,9 +8,14 @@ import org.springframework.beans.PropertyValues;
  * @Date: 2024-05-17-22:30
  * @Description: BeanDefinition实例保存bean的信息，包括class类型、方法构造参数、是否为单例等，此处简化只包含class类型
  */
+@Data
 public class BeanDefinition {
     private Class beanClass;
     private PropertyValues propertyValues;
+    // 记录 bean 的初始化方法名字
+    private String initMethodName;
+    // 记录 bean 的销毁方法的名字
+    private String  destroyMethodName;
 
     public BeanDefinition() {
     }

@@ -6,20 +6,24 @@ package org.springframework.test.ioc.bean;
  */
 public class Car {
 
-	private String brand;
+    private String brand;
 
-	public String getBrand() {
-		return brand;
-	}
+    public String getBrand() {
+        return brand;
+    }
 
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
 
-	@Override
-	public String toString() {
-		return "Car{" +
-				"brand='" + brand + '\'' +
-				'}';
-	}
+    public void initCar() {
+        System.out.println("Car did born in the method named initCar!");
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + brand + '\'' +
+                '}';
+    }
 }

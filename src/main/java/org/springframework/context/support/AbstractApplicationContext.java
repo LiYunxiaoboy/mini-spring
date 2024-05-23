@@ -87,4 +87,28 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
     }
 
     public abstract ConfigurableListableBeanFactory getBeanFactory();
+
+    public void close() {
+        doClose();
+    }
+
+    public void registerShutdownHook() {
+        Thread shutdownHook = new Thread() {
+            public void run() {
+                doClose();
+            }
+        };
+        // Runtime.getRuntime() 返回当前 Java 虚拟机的运行时对象。
+        // addShutdownHook(Thread shutdownHook) 是运行时对象的方法之一，用于向虚拟机注册一个在 JVM 关闭时执行的线程（也称为关闭钩子）。
+        Runtime.getRuntime().addShutdownHook(shutdownHook);
+
+    }
+
+    protected void doClose() {
+        destroyBeans();
+    }
+
+    protected void destroyBeans() {
+        getBeanFactory().destroySingletons();
+    }
 }
