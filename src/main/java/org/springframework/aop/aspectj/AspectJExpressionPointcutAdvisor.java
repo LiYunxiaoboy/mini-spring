@@ -12,28 +12,31 @@ import org.springframework.aop.PointcutAdvisor;
  */
 public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
 
-	private AspectJExpressionPointcut pointcut;
+    private AspectJExpressionPointcut pointcut;
 
-	private Advice advice;
+    private Advice advice;
 
-	private String expression;
+    private String expression;
 
-	public void setExpression(String expression) {
-		this.expression = expression;
-		pointcut = new AspectJExpressionPointcut(expression);
-	}
+    public void setExpression(String expression) {
+        this.expression = expression;
+        pointcut = new AspectJExpressionPointcut(expression);
+    }
 
-	@Override
-	public Pointcut getPointcut() {
-		return pointcut;
-	}
+    @Override
+    public Pointcut getPointcut() {
+        if (pointcut == null) {
+            pointcut = new AspectJExpressionPointcut(expression);
+        }
+        return pointcut;
+    }
 
-	@Override
-	public Advice getAdvice() {
-		return advice;
-	}
+    @Override
+    public Advice getAdvice() {
+        return advice;
+    }
 
-	public void setAdvice(Advice advice) {
-		this.advice = advice;
-	}
+    public void setAdvice(Advice advice) {
+        this.advice = advice;
+    }
 }
