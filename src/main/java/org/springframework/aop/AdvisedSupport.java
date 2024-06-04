@@ -8,33 +8,44 @@ import org.aopalliance.intercept.MethodInterceptor;
  */
 public class AdvisedSupport {
 
-	private TargetSource targetSource;
+    // 是否使用jdk动态代理
+    private boolean proxyTargetClass = false;
 
-	private MethodInterceptor methodInterceptor;
+    private TargetSource targetSource;
 
-	private MethodMatcher methodMatcher;
+    private MethodInterceptor methodInterceptor;
 
-	public TargetSource getTargetSource() {
-		return targetSource;
-	}
+    private MethodMatcher methodMatcher;
 
-	public void setTargetSource(TargetSource targetSource) {
-		this.targetSource = targetSource;
-	}
+    public boolean isProxyTargetClass() {
+        return proxyTargetClass;
+    }
 
-	public MethodInterceptor getMethodInterceptor() {
-		return methodInterceptor;
-	}
+    public void setProxyTargetClass(boolean proxyTargetClass) {
+        this.proxyTargetClass = proxyTargetClass;
+    }
 
-	public void setMethodInterceptor(MethodInterceptor methodInterceptor) {
-		this.methodInterceptor = methodInterceptor;
-	}
+    public TargetSource getTargetSource() {
+        return targetSource;
+    }
 
-	public MethodMatcher getMethodMatcher() {
-		return methodMatcher;
-	}
+    public void setTargetSource(TargetSource targetSource) {
+        this.targetSource = targetSource;
+    }
 
-	public void setMethodMatcher(MethodMatcher methodMatcher) {
-		this.methodMatcher = methodMatcher;
-	}
+    public MethodInterceptor getMethodInterceptor() {
+        return methodInterceptor;
+    }
+
+    public void setMethodInterceptor(MethodInterceptor methodInterceptor) {
+        this.methodInterceptor = methodInterceptor;
+    }
+
+    public MethodMatcher getMethodMatcher() {
+        return methodMatcher;
+    }
+
+    public void setMethodMatcher(MethodMatcher methodMatcher) {
+        this.methodMatcher = methodMatcher;
+    }
 }

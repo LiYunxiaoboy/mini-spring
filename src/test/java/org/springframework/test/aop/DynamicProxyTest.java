@@ -8,6 +8,7 @@ import org.springframework.aop.TargetSource;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.framework.CglibAopProxy;
 import org.springframework.aop.framework.JdkDynamicAopProxy;
+import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.test.common.WorldServiceInterceptor;
 import org.springframework.test.service.WorldService;
 import org.springframework.test.service.WorldServiceImpl;
@@ -42,5 +43,18 @@ public class DynamicProxyTest {
     public void testCglibDynamicProxy(){
         WorldServiceImpl proxy = (WorldServiceImpl)new CglibAopProxy(advisedSupport).getProxy();
         proxy.explode();
+    }
+
+    @Test
+    public void testFactoryProxy(){
+        // jdk动态代理
+        advisedSupport.setProxyTargetClass(false);
+        WorldService proxyJdk = (WorldService)new ProxyFactory(advisedSupport).getProxy();
+        proxyJdk.explode();
+
+        // cglib动态代理
+        advisedSupport.setProxyTargetClass(true);
+        WorldService proxyCglib = (WorldService)new ProxyFactory(advisedSupport).getProxy();
+        proxyCglib.explode();
     }
 }
