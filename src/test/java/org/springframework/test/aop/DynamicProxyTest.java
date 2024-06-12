@@ -17,10 +17,7 @@ import org.springframework.test.common.WorldServiceInterceptor;
 import org.springframework.test.service.WorldService;
 import org.springframework.test.service.WorldServiceImpl;
 
-/**
- * @author derekyi
- * @date 2020/12/6
- */
+
 public class DynamicProxyTest {
     private AdvisedSupport advisedSupport;
 

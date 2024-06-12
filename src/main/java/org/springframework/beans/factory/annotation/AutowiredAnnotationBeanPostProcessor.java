@@ -12,12 +12,7 @@ import org.springframework.core.convert.ConversionService;
 
 import java.lang.reflect.Field;
 
-/**
- * 处理@Autowired和@Value注解的BeanPostProcessor
- *
- * @author derekyi
- * @date 2020/12/27
- */
+
 public class AutowiredAnnotationBeanPostProcessor implements InstantiationAwareBeanPostProcessor, BeanFactoryAware {
 
     private ConfigurableListableBeanFactory beanFactory;

@@ -3,10 +3,7 @@ package org.springframework.test.ioc;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * @author derekyi
- * @date 2020/11/29
- */
+
 public class InitAndDestoryMethodTest {
 
 	@Test

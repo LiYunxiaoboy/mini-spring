@@ -6,10 +6,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 
 import java.util.*;
 
-/**
- * @author derekyi
- * @date 2020/11/22
- */
+
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory
         implements ConfigurableListableBeanFactory, BeanDefinitionRegistry {
 
@@ -33,7 +30,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
     @Override
     public void preInstantiateSingletons() throws BeansException {
         beanDefinitionMap.forEach((beanName, beanDefinition) -> {
-            if (beanDefinition.isSingleton()) {
+            if (beanDefinition.isSingleton() && !beanDefinition.isLazyInit()) {
                 getBean(beanName);
             }
         });

@@ -5,12 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
-/**
- * 读取bean定义信息即BeanDefinition的接口
- *
- * @author derekyi
- * @date 2020/11/26
- */
+
 public interface BeanDefinitionReader {
 
 	BeanDefinitionRegistry getRegistry();

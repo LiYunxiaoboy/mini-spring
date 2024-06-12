@@ -2,10 +2,7 @@ package org.springframework.aop.framework;
 
 import org.springframework.aop.AdvisedSupport;
 
-/**
- * @author derekyi
- * @date 2020/12/6
- */
+
 public class ProxyFactory {
 
 	private AdvisedSupport advisedSupport;

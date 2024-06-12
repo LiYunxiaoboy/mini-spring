@@ -1,11 +1,6 @@
 package org.springframework.aop;
 
-/**
- * 被代理的目标对象
- *
- * @author derekyi
- * @date 2020/12/6
- */
+
 public class TargetSource {
 
 	private final Object target;

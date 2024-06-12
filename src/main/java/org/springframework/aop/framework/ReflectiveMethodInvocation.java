@@ -5,10 +5,7 @@ import org.aopalliance.intercept.MethodInvocation;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
-/**
- * @author derekyi
- * @date 2020/12/6
- */
+
 public class ReflectiveMethodInvocation implements MethodInvocation {
 
 	protected final Object target;
