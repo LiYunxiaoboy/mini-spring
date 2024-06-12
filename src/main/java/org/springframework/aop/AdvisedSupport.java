@@ -8,8 +8,8 @@ import org.aopalliance.intercept.MethodInterceptor;
  */
 public class AdvisedSupport {
 
-    // 是否使用jdk动态代理
-    private boolean proxyTargetClass = false;
+    //是否使用cglib代理
+    private boolean proxyTargetClass = true;
 
     private TargetSource targetSource;
 
